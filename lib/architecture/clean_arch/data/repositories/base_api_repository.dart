@@ -1,7 +1,8 @@
+// ignore_for_file: avoid_print
+
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:search_api/architecture/clean_arch/domain/models/api_response.dart';
 
 abstract class BaseApiRepository {
@@ -19,7 +20,7 @@ abstract class BaseApiRepository {
         );
       }
     } on DioError catch (error) {
-      Fluttertoast.showToast(msg: error.message ?? error.toString());
+      print(error.message ?? error.toString());
       return null;
     }
   }

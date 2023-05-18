@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'topic_item.freezed.dart';
@@ -7,11 +9,11 @@ part 'topic_item.g.dart';
 class TopicItem with _$TopicItem {
   factory TopicItem({
     String? display_name,
+    String? short_description,
+    String? description,
+    String? created_by,
+    String? released,
     required String name,
-    required String? short_description,
-    required String? description,
-    required String? created_by,
-    required String? released,
     required String created_at,
     required String updated_at,
     required bool featured,

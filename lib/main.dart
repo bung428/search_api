@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:search_api/clean_arch/domain/repository/api_repository.dart';
 import 'package:search_api/dependencies.dart';
-import 'package:search_api/page/search_main_controller.dart';
 import 'package:search_api/route/app_router.dart';
 
 void main() async {

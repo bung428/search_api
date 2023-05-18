@@ -30,7 +30,7 @@ class SearchApi {
   }
 
   Future<void> getSearchTopics(String keyWord) async {
-    List results = [];
+    // List results = [];
 
     final res = await _dio.get('/topics?q=$keyWord');
     final statusCode = res.statusCode;
@@ -39,7 +39,7 @@ class SearchApi {
     }
 
     try {
-      Map<String, dynamic> topics = res.data;
+      // Map<String, dynamic> topics = res.data;
       // if (topics.isNotEmpty) {
       //   for (Map<String, dynamic> topic in topics) {
       //     try {

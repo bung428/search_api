@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:search_api/page/search_detail_page.dart';
+import 'package:search_api/clean_arch/domain/models/responses/topic_item.dart';
+import 'package:search_api/page/detail/search_detail_page.dart';
 import 'package:search_api/page/search_main_page.dart';
 
 abstract class Links {
@@ -9,7 +10,7 @@ abstract class Links {
 
 enum AppLinks implements Links {
   search('/'),
-  detail('/detail'),
+  detail('detail'),
   ;
 
   @override
@@ -23,7 +24,7 @@ extension AppLinksRoute on AppLinks {
     switch (this) {
       case AppLinks.search:
         return GoRoute(
-          name: name,
+          name: name ?? linkPath,
           path: path ?? linkPath,
           pageBuilder: (
             context,
@@ -33,12 +34,12 @@ extension AppLinksRoute on AppLinks {
                 key: state.pageKey,
                 name: state.location,
                 arguments: state.extra,
-                child: SearchMainPage());
+                child: const SearchMainPage());
           },
         );
       case AppLinks.detail:
         return GoRoute(
-          name: name,
+          name: name ?? linkPath,
           path: path ?? linkPath,
           pageBuilder: (
             context,
@@ -48,7 +49,7 @@ extension AppLinksRoute on AppLinks {
                 key: state.pageKey,
                 name: state.location,
                 arguments: state.extra,
-                child: const SearchDetailPage());
+                child: SearchDetailPage(item: state.extra as TopicItem,));
           },
         );
     }

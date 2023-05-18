@@ -106,7 +106,11 @@ class BLoCProviderState<T extends BLoC?> extends State<BLoCProvider> {
     if(bloc != null) {
       return Builder(
         builder: (context) {
-          return buildBLoC(context, bloc, widget.build(context, bloc));
+          return buildBLoC(
+            context,
+            bloc,
+            widget.build(context, bloc)
+          );
         },
       );
     }

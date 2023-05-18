@@ -36,27 +36,27 @@ class _TopicsApiService implements TopicsApiService {
 
   @override
   Future<HttpResponse<SearchTopics>> getTopics({required SearchTopicsRequest request}) async {
-      const _extra = <String, dynamic>{};
+      const extra = <String, dynamic>{};
       final queryParameters = request.toJson();
       queryParameters.removeWhere((k, v) => v == null);
-      final _headers = <String, dynamic>{};
-      final _data = <String, dynamic>{};
-      final _result = await _dio.fetch<Map<String, dynamic>>(
+      final headers = <String, dynamic>{};
+      final data = <String, dynamic>{};
+      final result = await _dio.fetch<Map<String, dynamic>>(
           _setStreamType<Response<SearchTopics>>(Options(
             method: 'GET',
-            headers: _headers,
-            extra: _extra,
+            headers: headers,
+            extra: extra,
           )
               .compose(
             _dio.options,
             '/topics',
             queryParameters: queryParameters,
-            data: _data,
+            data: data,
           )
               .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
 
-      final value = SearchTopics.fromJson(_result.data!);
-      final httpResponse = HttpResponse(value, _result);
+      final value = SearchTopics.fromJson(result.data!);
+      final httpResponse = HttpResponse(value, result);
 
       return httpResponse;
   }

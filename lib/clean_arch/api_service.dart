@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:search_api/clean_arch/data/datasources/remote/topics_api_service.dart';
 import 'package:search_api/standard/service/dio_service.dart';
 
 class ApiService {

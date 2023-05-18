@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:search_api/architecture/clean_arch/domain/models/responses/topic_item.dart';
 import 'package:search_api/architecture/clean_arch/domain/repository/api_repository.dart';
+import 'package:search_api/env.dart';
 import 'package:search_api/src/bloc/bloc_provider.dart';
 import 'package:search_api/src/dependencies.dart';
 import 'package:search_api/src/page/main/search_main_bloc.dart';
@@ -15,8 +16,9 @@ class SearchMainPage extends BLoCProvider<SearchMainBLoC> {
   const SearchMainPage({super.key});
 
   @override
-  SearchMainBLoC createBLoC() =>
-      SearchMainBLoC(locator<ApiRepository>());
+  SearchMainBLoC createBLoC() => EnvironmentConfig.isClean
+      ? SearchMainCleanBLoC(locator<ApiRepository>())
+      : SearchMainSimpleBLoC();
 
   @override
   Widget build(BuildContext context, SearchMainBLoC bloc) {

@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:search_api/clean_arch/domain/models/api_response.dart';
-import 'package:search_api/clean_arch/domain/models/requests/search_topics_request.dart';
-import 'package:search_api/clean_arch/domain/models/responses/search_topics.dart';
+import 'package:search_api/architecture/clean_arch/domain/models/api_response.dart';
+import 'package:search_api/architecture/clean_arch/domain/models/requests/search_topics_request.dart';
+import 'package:search_api/architecture/clean_arch/domain/models/responses/search_topics.dart';
 
 abstract class TopicsApiService {
   factory TopicsApiService(Dio dio, {String baseUrl}) = _TopicsApiService;

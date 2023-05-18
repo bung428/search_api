@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:search_api/dependencies.dart';
-import 'package:search_api/route/app_router.dart';
+import 'package:search_api/src/dependencies.dart';
+import 'package:search_api/src/route/app_router.dart';
 
 void main() async {
   await initDependencies();
 
   runApp(const MyApp());
-  // runApp(MultiProvider(
-  //   providers: [
-  //     ChangeNotifierProvider(
-  //         create: (_) => SearchMainController(locator<ApiRepository>())
-  //     ),
-  //   ],
-  //   child: const MyApp(),
-  // ),);
 }
 
 class MyApp extends StatelessWidget {

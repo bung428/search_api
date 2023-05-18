@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:search_api/clean_arch/domain/models/responses/topic_item.dart';
-import 'package:search_api/page/detail/search_detail_page.dart';
-import 'package:search_api/page/search_main_page.dart';
+import 'package:search_api/architecture/clean_arch/domain/models/responses/topic_item.dart';
+import 'package:search_api/src/page/detail/search_detail_page.dart';
+import 'package:search_api/src/page/main/search_main_page.dart';
 
 abstract class Links {
   String get linkPath;

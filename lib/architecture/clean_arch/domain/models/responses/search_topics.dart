@@ -1,7 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:search_api/clean_arch/domain/models/responses/topic_item.dart';
+import 'package:search_api/architecture/clean_arch/domain/models/responses/topic_item.dart';
 
 part 'search_topics.freezed.dart';
 part 'search_topics.g.dart';

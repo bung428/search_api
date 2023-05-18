@@ -1,9 +1,9 @@
 import 'package:rxdart/rxdart.dart';
-import 'package:search_api/bloc/bloc_provider.dart';
-import 'package:search_api/clean_arch/domain/models/requests/search_topics_request.dart';
-import 'package:search_api/clean_arch/domain/models/responses/search_topics.dart';
-import 'package:search_api/clean_arch/domain/models/responses/topic_item.dart';
-import 'package:search_api/clean_arch/domain/repository/api_repository.dart';
+import 'package:search_api/architecture/clean_arch/domain/models/requests/search_topics_request.dart';
+import 'package:search_api/architecture/clean_arch/domain/models/responses/search_topics.dart';
+import 'package:search_api/architecture/clean_arch/domain/models/responses/topic_item.dart';
+import 'package:search_api/architecture/clean_arch/domain/repository/api_repository.dart';
+import 'package:search_api/src/bloc/bloc_provider.dart';
 
 class SearchMainBLoC extends BLoC with BLoCStreamSubscription {
   final ApiRepository apiRepository;

@@ -1,9 +1,8 @@
-
 import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:search_api/clean_arch/domain/models/api_response.dart';
+import 'package:search_api/architecture/clean_arch/domain/models/api_response.dart';
 
 abstract class BaseApiRepository {
   Future<T?> getStateOf<T>({

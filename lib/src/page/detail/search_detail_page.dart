@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:search_api/bloc/bloc_provider.dart';
-import 'package:search_api/clean_arch/domain/models/responses/topic_item.dart';
-import 'package:search_api/page/detail/search_detail_bloc.dart';
-import 'package:search_api/widget/box_widget.dart';
+import 'package:search_api/architecture/clean_arch/domain/models/responses/topic_item.dart';
+import 'package:search_api/src/bloc/bloc_provider.dart';
+import 'package:search_api/src/page/detail/search_detail_bloc.dart';
+import 'package:search_api/src/widget/box_widget.dart';
 
 class SearchDetailPage extends BLoCProvider<SearchDetailBLoC> {
   final TopicItem item;

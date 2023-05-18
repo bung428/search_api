@@ -1,4 +1,4 @@
-import 'package:search_api/bloc/bloc_provider.dart';
+import 'package:search_api/src/bloc/bloc_provider.dart';
 
 class SearchDetailBLoC extends BLoC {
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:search_api/clean_arch/domain/models/responses/topic_item.dart';
-import 'package:search_api/widget/box_widget.dart';
+import 'package:search_api/architecture/clean_arch/domain/models/responses/topic_item.dart';
+import 'package:search_api/src/widget/box_widget.dart';
 
 class TopicItemWidget extends StatelessWidget {
   final TopicItem item;

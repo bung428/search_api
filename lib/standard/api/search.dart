@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:search_api/exception.dart';
+import 'package:search_api/src/exception.dart';
 import 'package:search_api/standard/service/dio_service.dart';
 
 class SearchApi {

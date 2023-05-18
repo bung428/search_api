@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:search_api/route/app_links.dart';
+import 'package:search_api/src/route/app_links.dart';
 
-import '../page/search_main_page.dart';
+import '../page/main/search_main_page.dart';
 
 final appNavigatorKey = GlobalKey<NavigatorState>();
 

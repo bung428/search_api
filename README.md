@@ -28,43 +28,33 @@ samples, guidance on mobile development, and a full API reference.
 
 ### Build & Run Environment Configuration
 #clean -> Clean Architecture Structure Applied Versions
-
 `flutter run`
 
 #simple -> Versions using the simple architecture that you usually used
-
 `flutter run --dart-define=DEFINE_APP_NAME=SearchApiSimple --dart-define=DEFINE_APP_SUFFIX=.simple --dart-define=DEFINE_APP_MODE=simple`
 
 ### Dependencies
 #Network
+- dio: ^5.1.2
 
-dio: ^5.1.2
 
 #Models
+- freezed_annotation: ^2.2.0
+- json_annotation: ^4.8.1
 
-freezed_annotation: ^2.2.0
-
-json_annotation: ^4.8.1
 
 #Others
+- go_router: ^7.0.1
+- get_it: ^7.2.0
+- rxdart: ^0.27.7
+- fluttertoast: ^8.2.1
 
-go_router: ^7.0.1
-
-get_it: ^7.2.0
-
-rxdart: ^0.27.7
-
-fluttertoast: ^8.2.1
 
 #Dev Dependencies
-
-freezed: ^2.3.4
-
-build_runner: ^2.4.4
-
-json_serializable: ^6.6.2
-
-flutter_lints: ^2.0.0
+- freezed: ^2.3.4
+- build_runner: ^2.4.4
+- json_serializable: ^6.6.2
+- flutter_lints: ^2.0.0
 
 
 

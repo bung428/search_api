@@ -34,6 +34,63 @@ samples, guidance on mobile development, and a full API reference.
 - simple -> Versions using the simple architecture that you usually used
   `flutter run --dart-define=DEFINE_APP_NAME=SearchApiSimple --dart-define=DEFINE_APP_SUFFIX=.simple --dart-define=DEFINE_APP_MODE=simple`
 
+```bash
+├── architecture
+│   ├── clean_arch
+│   │   ├── data
+│   │   │   ├── datasources
+│   │   │   │   └── remote
+│   │   │   │       └── topics_api_service.dart
+│   │   │   └── repositories
+│   │   │       ├── api_repository_impl.dart
+│   │   │       └── base_api_repository.dart
+│   │   └── domain
+│   │       ├── models
+│   │       │   ├── requests
+│   │       │   │   ├── search_topics_request.dart
+│   │       │   │   ├── search_topics_request.freezed.dart
+│   │       │   │   └── search_topics_request.g.dart
+│   │       │   ├── responses
+│   │       │   │   ├── search_topics.dart
+│   │       │   │   ├── search_topics.freezed.dart
+│   │       │   │   ├── search_topics.g.dart
+│   │       │   │   ├── topic_item.dart
+│   │       │   │   ├── topic_item.freezed.dart
+│   │       │   │   └── topic_item.g.dart
+│   │       │   └── api_response.dart
+│   │       └── repository
+│   │           └── api_repository_dart
+│   └── simple_arch
+│       └── service
+│           ├── api
+│           │    └── search.dart
+│           └── dio_service.dart
+│  
+├── src
+│   ├── bloc
+│   │   └── bloc_provider.dart
+│   ├── page
+│   │   ├── detail
+│   │   │   ├── search_detail_bloc.dart
+│   │   │   └── search_detail_page.dart
+│   │   └── main
+│   │       ├── search_main_bloc.dart
+│   │       └── search_main_page.dart
+│   ├── route
+│   │   ├── app_links.dart
+│   │   └── app_router.dart
+│   ├── widget
+│   │   ├── app_bar_stream_widget.dart
+│   │   ├── box_widget.dart
+│   │   ├── load_more_listview.dart
+│   │   ├── search_bar_widget.dart
+│   │   ├── stream_builder_widget.dart
+│   │   └── topic_item_widget.dart
+│   └── dependencies.dart
+├── env.dart
+└── main.dart 
+``` 
+
 ### Dependencies
 Network
 `dio: ^5.1.2`

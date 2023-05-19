@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:search_api/architecture/clean_arch/domain/models/responses/search_topics.dart';
 import 'package:search_api/architecture/simple_arch/service/dio_service.dart';
 
@@ -16,12 +17,18 @@ class SearchApi {
     _dio.interceptors.add(DioService.logInterceptorsWrapper);
   }
 
-  Future<SearchTopics?> getSearchTopics(String keyWord) async {
-    final res = await _dio.get('/topics?q=$keyWord');
+  Future<SearchTopics?> getSearchTopics(String keyWord,
+      {int pageNum = 1, int perPage = 30}) async {
+    try {
+      final res = await _dio.get('/topics?q=$keyWord&page=$pageNum');
 
-    if (res.data == null) {
-      return null;
+      if (res.data == null) {
+        return null;
+      }
+      return SearchTopics.fromJson(res.data!);
+    } catch (e) {
+      Fluttertoast.showToast(msg: e.toString());
     }
-    return SearchTopics.fromJson(res.data!);
+    return null;
   }
 }

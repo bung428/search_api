@@ -8,6 +8,7 @@ import 'package:search_api/src/dependencies.dart';
 import 'package:search_api/src/page/main/search_main_bloc.dart';
 import 'package:search_api/src/route/app_links.dart';
 import 'package:search_api/src/widget/box_widget.dart';
+import 'package:search_api/src/widget/load_more_listview.dart';
 import 'package:search_api/src/widget/search_bar_widget.dart';
 import 'package:search_api/src/widget/stream_builder_widget.dart';
 import 'package:search_api/src/widget/topic_item_widget.dart';
@@ -43,19 +44,30 @@ class SearchMainPage extends BLoCProvider<SearchMainBLoC> {
                   ),
                   stream: bloc.topicItemsStream,
                   builder: (context, List<TopicItem> items) {
-                    return ListView(
-                      children: items.map((e) => TopicItemWidget(
-                        item: e,
-                        onTap: () => context.goNamed(
-                          AppLinks.detail.linkPath,
-                          extra: e
-                        ),
-                      )).toList(),
+                    return LoadMoreListViewWidget(
+                      list: items,
+                      onLoadMoreCallback: bloc.loadMore,
+                      sliverListWidget: SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                                (BuildContext context, int index) {
+                              return TopicItemWidget(
+                                item: items[index],
+                                onTap: () => context.goNamed(
+                                    AppLinks.detail.linkPath,
+                                    extra: items[index]
+                                ),
+                              );
+                            },
+                            childCount: items.length,
+                          )),
+                      moreWidget: Container(
+                        alignment: AlignmentDirectional.center,
+                        child: const CircularProgressIndicator(),
+                      ),
                     );
                   }
                 ),
               ),
-              // TextButton(onPressed: () => context.go(AppLinks.detail.linkPath), child: Text('go to detail'))
             ],
           ),
         ),

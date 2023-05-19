@@ -22,7 +22,7 @@ SearchTopicsRequest _$SearchTopicsRequestFromJson(Map<String, dynamic> json) {
 mixin _$SearchTopicsRequest {
   ///keyWord
   String get q => throw _privateConstructorUsedError;
-  int? get per_page => throw _privateConstructorUsedError;
+  int get per_page => throw _privateConstructorUsedError;
   int? get page => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $SearchTopicsRequestCopyWith<$Res> {
           SearchTopicsRequest value, $Res Function(SearchTopicsRequest) then) =
       _$SearchTopicsRequestCopyWithImpl<$Res, SearchTopicsRequest>;
   @useResult
-  $Res call({String q, int? per_page, int? page});
+  $Res call({String q, int per_page, int? page});
 }
 
 /// @nodoc
@@ -54,7 +54,7 @@ class _$SearchTopicsRequestCopyWithImpl<$Res, $Val extends SearchTopicsRequest>
   @override
   $Res call({
     Object? q = null,
-    Object? per_page = freezed,
+    Object? per_page = null,
     Object? page = freezed,
   }) {
     return _then(_value.copyWith(
@@ -62,10 +62,10 @@ class _$SearchTopicsRequestCopyWithImpl<$Res, $Val extends SearchTopicsRequest>
           ? _value.q
           : q // ignore: cast_nullable_to_non_nullable
               as String,
-      per_page: freezed == per_page
+      per_page: null == per_page
           ? _value.per_page
           : per_page // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       page: freezed == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -82,7 +82,7 @@ abstract class _$$_SearchTopicsRequestCopyWith<$Res>
       __$$_SearchTopicsRequestCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String q, int? per_page, int? page});
+  $Res call({String q, int per_page, int? page});
 }
 
 /// @nodoc
@@ -97,7 +97,7 @@ class __$$_SearchTopicsRequestCopyWithImpl<$Res>
   @override
   $Res call({
     Object? q = null,
-    Object? per_page = freezed,
+    Object? per_page = null,
     Object? page = freezed,
   }) {
     return _then(_$_SearchTopicsRequest(
@@ -105,10 +105,10 @@ class __$$_SearchTopicsRequestCopyWithImpl<$Res>
           ? _value.q
           : q // ignore: cast_nullable_to_non_nullable
               as String,
-      per_page: freezed == per_page
+      per_page: null == per_page
           ? _value.per_page
           : per_page // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       page: freezed == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -120,7 +120,7 @@ class __$$_SearchTopicsRequestCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SearchTopicsRequest implements _SearchTopicsRequest {
-  _$_SearchTopicsRequest({required this.q, this.per_page, this.page});
+  _$_SearchTopicsRequest({required this.q, this.per_page = 30, this.page});
 
   factory _$_SearchTopicsRequest.fromJson(Map<String, dynamic> json) =>
       _$$_SearchTopicsRequestFromJson(json);
@@ -129,7 +129,8 @@ class _$_SearchTopicsRequest implements _SearchTopicsRequest {
   @override
   final String q;
   @override
-  final int? per_page;
+  @JsonKey()
+  final int per_page;
   @override
   final int? page;
 
@@ -171,7 +172,7 @@ class _$_SearchTopicsRequest implements _SearchTopicsRequest {
 abstract class _SearchTopicsRequest implements SearchTopicsRequest {
   factory _SearchTopicsRequest(
       {required final String q,
-      final int? per_page,
+      final int per_page,
       final int? page}) = _$_SearchTopicsRequest;
 
   factory _SearchTopicsRequest.fromJson(Map<String, dynamic> json) =
@@ -182,7 +183,7 @@ abstract class _SearchTopicsRequest implements SearchTopicsRequest {
   ///keyWord
   String get q;
   @override
-  int? get per_page;
+  int get per_page;
   @override
   int? get page;
   @override

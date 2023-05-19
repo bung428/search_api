@@ -10,7 +10,7 @@ _$_SearchTopicsRequest _$$_SearchTopicsRequestFromJson(
         Map<String, dynamic> json) =>
     _$_SearchTopicsRequest(
       q: json['q'] as String,
-      per_page: json['per_page'] as int?,
+      per_page: json['per_page'] as int? ?? 30,
       page: json['page'] as int?,
     );
 

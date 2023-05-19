@@ -10,7 +10,7 @@ class SearchTopicsRequest with _$SearchTopicsRequest {
   factory SearchTopicsRequest({
     ///keyWord
     required String q,
-    int? per_page,
+    @Default(30) int per_page,
     int? page
   }) = _SearchTopicsRequest;
 

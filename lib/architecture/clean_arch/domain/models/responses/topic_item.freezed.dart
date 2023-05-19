@@ -21,11 +21,11 @@ TopicItem _$TopicItemFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$TopicItem {
   String? get display_name => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
   String? get short_description => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get created_by => throw _privateConstructorUsedError;
   String? get released => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   String get created_at => throw _privateConstructorUsedError;
   String get updated_at => throw _privateConstructorUsedError;
   bool get featured => throw _privateConstructorUsedError;
@@ -45,11 +45,11 @@ abstract class $TopicItemCopyWith<$Res> {
   @useResult
   $Res call(
       {String? display_name,
-      String name,
       String? short_description,
       String? description,
       String? created_by,
       String? released,
+      String name,
       String created_at,
       String updated_at,
       bool featured,
@@ -71,11 +71,11 @@ class _$TopicItemCopyWithImpl<$Res, $Val extends TopicItem>
   @override
   $Res call({
     Object? display_name = freezed,
-    Object? name = null,
     Object? short_description = freezed,
     Object? description = freezed,
     Object? created_by = freezed,
     Object? released = freezed,
+    Object? name = null,
     Object? created_at = null,
     Object? updated_at = null,
     Object? featured = null,
@@ -87,10 +87,6 @@ class _$TopicItemCopyWithImpl<$Res, $Val extends TopicItem>
           ? _value.display_name
           : display_name // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
       short_description: freezed == short_description
           ? _value.short_description
           : short_description // ignore: cast_nullable_to_non_nullable
@@ -107,6 +103,10 @@ class _$TopicItemCopyWithImpl<$Res, $Val extends TopicItem>
           ? _value.released
           : released // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       created_at: null == created_at
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
@@ -140,11 +140,11 @@ abstract class _$$_TopicItemCopyWith<$Res> implements $TopicItemCopyWith<$Res> {
   @useResult
   $Res call(
       {String? display_name,
-      String name,
       String? short_description,
       String? description,
       String? created_by,
       String? released,
+      String name,
       String created_at,
       String updated_at,
       bool featured,
@@ -164,11 +164,11 @@ class __$$_TopicItemCopyWithImpl<$Res>
   @override
   $Res call({
     Object? display_name = freezed,
-    Object? name = null,
     Object? short_description = freezed,
     Object? description = freezed,
     Object? created_by = freezed,
     Object? released = freezed,
+    Object? name = null,
     Object? created_at = null,
     Object? updated_at = null,
     Object? featured = null,
@@ -180,10 +180,6 @@ class __$$_TopicItemCopyWithImpl<$Res>
           ? _value.display_name
           : display_name // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
       short_description: freezed == short_description
           ? _value.short_description
           : short_description // ignore: cast_nullable_to_non_nullable
@@ -200,6 +196,10 @@ class __$$_TopicItemCopyWithImpl<$Res>
           ? _value.released
           : released // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       created_at: null == created_at
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
@@ -229,11 +229,11 @@ class __$$_TopicItemCopyWithImpl<$Res>
 class _$_TopicItem implements _TopicItem {
   _$_TopicItem(
       {this.display_name,
-      required this.name,
       this.short_description,
       this.description,
       this.created_by,
       this.released,
+      required this.name,
       required this.created_at,
       required this.updated_at,
       required this.featured,
@@ -246,8 +246,6 @@ class _$_TopicItem implements _TopicItem {
   @override
   final String? display_name;
   @override
-  final String name;
-  @override
   final String? short_description;
   @override
   final String? description;
@@ -255,6 +253,8 @@ class _$_TopicItem implements _TopicItem {
   final String? created_by;
   @override
   final String? released;
+  @override
+  final String name;
   @override
   final String created_at;
   @override
@@ -268,7 +268,7 @@ class _$_TopicItem implements _TopicItem {
 
   @override
   String toString() {
-    return 'TopicItem(display_name: $display_name, name: $name, short_description: $short_description, description: $description, created_by: $created_by, released: $released, created_at: $created_at, updated_at: $updated_at, featured: $featured, curated: $curated, score: $score)';
+    return 'TopicItem(display_name: $display_name, short_description: $short_description, description: $description, created_by: $created_by, released: $released, name: $name, created_at: $created_at, updated_at: $updated_at, featured: $featured, curated: $curated, score: $score)';
   }
 
   @override
@@ -278,7 +278,6 @@ class _$_TopicItem implements _TopicItem {
             other is _$_TopicItem &&
             (identical(other.display_name, display_name) ||
                 other.display_name == display_name) &&
-            (identical(other.name, name) || other.name == name) &&
             (identical(other.short_description, short_description) ||
                 other.short_description == short_description) &&
             (identical(other.description, description) ||
@@ -287,6 +286,7 @@ class _$_TopicItem implements _TopicItem {
                 other.created_by == created_by) &&
             (identical(other.released, released) ||
                 other.released == released) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.created_at, created_at) ||
                 other.created_at == created_at) &&
             (identical(other.updated_at, updated_at) ||
@@ -302,11 +302,11 @@ class _$_TopicItem implements _TopicItem {
   int get hashCode => Object.hash(
       runtimeType,
       display_name,
-      name,
       short_description,
       description,
       created_by,
       released,
+      name,
       created_at,
       updated_at,
       featured,
@@ -330,11 +330,11 @@ class _$_TopicItem implements _TopicItem {
 abstract class _TopicItem implements TopicItem {
   factory _TopicItem(
       {final String? display_name,
-      required final String name,
       final String? short_description,
       final String? description,
       final String? created_by,
       final String? released,
+      required final String name,
       required final String created_at,
       required final String updated_at,
       required final bool featured,
@@ -347,8 +347,6 @@ abstract class _TopicItem implements TopicItem {
   @override
   String? get display_name;
   @override
-  String get name;
-  @override
   String? get short_description;
   @override
   String? get description;
@@ -356,6 +354,8 @@ abstract class _TopicItem implements TopicItem {
   String? get created_by;
   @override
   String? get released;
+  @override
+  String get name;
   @override
   String get created_at;
   @override

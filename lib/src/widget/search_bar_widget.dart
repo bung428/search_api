@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
+typedef SearchTxtCallback = Function(String text);
+
+const hintText = 'Enter a search term related to the topics.';
+const emptyMsg = 'You must enter at least one character.';
+
 String? textEmptyValidator(String? value) {
   if (value != null) {
-    return value.isEmpty ? 'You must enter at least one character.' : null;
+    return value.isEmpty ? emptyMsg : null;
   }
   return null;
 }
-
-typedef SearchTxtCallback = Function(String text);
 
 class SearchBarWidget extends StatelessWidget {
   SearchBarWidget({
@@ -17,10 +20,11 @@ class SearchBarWidget extends StatelessWidget {
 
   final _formKey = GlobalKey<FormState>();
   final SearchTxtCallback searchTxtCallback;
-  final hintText = 'Search topics';
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -30,11 +34,11 @@ class SearchBarWidget extends StatelessWidget {
             textInputAction: TextInputAction.search,
             validator: textEmptyValidator,
             decoration: InputDecoration(
-              prefixIcon: const Icon(
-                Icons.search,
-                color: Colors.grey,
-              ),
               hintText: hintText,
+              hintStyle: textTheme.labelMedium?.copyWith(color: Colors.grey),
+              focusedBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.black)
+              )
             ),
             onFieldSubmitted: (_) {
               final formKeyState = _formKey.currentState;
@@ -43,8 +47,6 @@ class SearchBarWidget extends StatelessWidget {
               }
               if (formKeyState.validate()) {
                 formKeyState.save();
-              } else {
-
               }
             },
             onSaved: (value) {
@@ -58,55 +60,3 @@ class SearchBarWidget extends StatelessWidget {
     );
   }
 }
-
-
-// class SearchBarWidget extends StatefulWidget {
-//   const SearchBarWidget({Key? key}) : super(key: key);
-//
-//   @override
-//   State<SearchBarWidget> createState() => _SearchBarWidgetState();
-// }
-//
-// class _SearchBarWidgetState extends State<SearchBarWidget> {
-//   final _formKey = GlobalKey<FormState>();
-//   final hintText = 'Search topics';
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       mainAxisSize: MainAxisSize.min,
-//       children: [
-//         Form(
-//           key: _formKey,
-//           child: TextFormField(
-//             textInputAction: TextInputAction.search,
-//             validator: textEmptyValidator,
-//             decoration: InputDecoration(
-//               prefixIcon: const Icon(
-//                 Icons.search,
-//                 color: Colors.grey,
-//               ),
-//               hintText: hintText,
-//             ),
-//             onFieldSubmitted: (_) {
-//               final formKeyState = _formKey.currentState;
-//               if (formKeyState == null) {
-//                 return;
-//               }
-//               if (formKeyState.validate()) {
-//                 formKeyState.save();
-//               } else {
-//
-//               }
-//             },
-//             onSaved: (value) {
-//               if (value != null) {
-//                 /// Save Complete => execute api
-//               }
-//             },
-//           ),
-//         ),
-//       ],
-//     );
-//   }
-// }

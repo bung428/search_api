@@ -3,6 +3,10 @@ import 'package:search_api/architecture/clean_arch/domain/models/api_response.da
 import 'package:search_api/architecture/clean_arch/domain/models/requests/search_topics_request.dart';
 import 'package:search_api/architecture/clean_arch/domain/models/responses/search_topics.dart';
 
+const get = 'GET';
+const topicsPoint = '/topics';
+const apiUrl = 'https://api.github.com/search';
+
 abstract class TopicsApiService {
   factory TopicsApiService(Dio dio, {String baseUrl}) = _TopicsApiService;
 
@@ -14,7 +18,7 @@ class _TopicsApiService implements TopicsApiService {
       this._dio, {
         this.baseUrl,
       }) {
-    baseUrl ??= 'https://api.github.com/search';
+    baseUrl ??= apiUrl;
   }
 
   final Dio _dio;
@@ -30,13 +34,13 @@ class _TopicsApiService implements TopicsApiService {
       final data = <String, dynamic>{};
       final result = await _dio.fetch<Map<String, dynamic>>(
           _setStreamType<Response<SearchTopics>>(Options(
-            method: 'GET',
+            method: get,
             headers: headers,
             extra: extra,
           )
               .compose(
             _dio.options,
-            '/topics',
+            topicsPoint,
             queryParameters: queryParameters,
             data: data,
           )

@@ -9,12 +9,17 @@ import 'package:search_api/architecture/clean_arch/domain/repository/api_reposit
 import 'package:search_api/architecture/simple_arch/service/api/search.dart';
 import 'package:search_api/src/bloc/bloc_provider.dart';
 
+enum AppBarMode {search, general}
+
 abstract class SearchMainBLoC extends BLoC with BLoCStreamSubscription {
   String keyWord = '';
   final ScrollController scrollController = ScrollController();
 
   final topicItems = BehaviorSubject<List<TopicItem>>()..value = [];
   Stream<List<TopicItem>> get topicItemsStream => topicItems.stream;
+
+  final appBarMode = BehaviorSubject<AppBarMode>()..value = AppBarMode.general;
+  Stream<AppBarMode> get appBarModeStream => appBarMode.stream;
 
   @override
   void onBLoCLaunched() {
@@ -24,7 +29,9 @@ abstract class SearchMainBLoC extends BLoC with BLoCStreamSubscription {
   @override
   void dispose() {
     scrollController.removeListener(loadMore);
+
     topicItems.close();
+    appBarMode.close();
   }
 
   void getSearchTopics(String keyWord);
@@ -44,6 +51,17 @@ abstract class SearchMainBLoC extends BLoC with BLoCStreamSubscription {
     }
 
     return quotient + 1;
+  }
+
+  void switchAppBar(AppBarMode mode) {
+    switch (mode) {
+      case AppBarMode.search:
+        appBarMode.value = AppBarMode.general;
+        break;
+      case AppBarMode.general:
+        appBarMode.value = AppBarMode.search;
+        break;
+    }
   }
 }
 

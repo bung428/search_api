@@ -3,6 +3,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:search_api/architecture/clean_arch/domain/models/responses/search_topics.dart';
 import 'package:search_api/architecture/simple_arch/service/dio_service.dart';
 
+const apiUrl = 'https://api.github.com/search';
+
 class SearchApi {
   static final SearchApi _instance = SearchApi._();
 
@@ -10,8 +12,7 @@ class SearchApi {
 
   SearchApi._();
 
-  final _dio =
-  Dio(BaseOptions(baseUrl: 'https://api.github.com/search'));
+  final _dio = Dio(BaseOptions(baseUrl: apiUrl));
 
   void init() {
     _dio.interceptors.add(DioService.logInterceptorsWrapper);

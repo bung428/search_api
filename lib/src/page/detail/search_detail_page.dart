@@ -5,6 +5,13 @@ import 'package:search_api/src/bloc/bloc_provider.dart';
 import 'package:search_api/src/page/detail/search_detail_bloc.dart';
 import 'package:search_api/src/widget/box_widget.dart';
 
+const displayName = 'Display name';
+const description = 'Description';
+const scoreStr = 'Score';
+const release = 'Release';
+const created = 'Created';
+const updated = 'Updated';
+
 class SearchDetailPage extends BLoCProvider<SearchDetailBLoC> {
   final TopicItem item;
 
@@ -49,22 +56,22 @@ class SearchDetailPage extends BLoCProvider<SearchDetailBLoC> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   if (dpName != null) ...[
-                    TopicDataRowWidget(infoName: 'Display name', infoValue: dpName),
+                    TopicDataRowWidget(infoName: displayName, infoValue: dpName),
                     const ColumnBox(12),
                   ],
                   if (desc != null) ...[
-                    TopicDataRowWidget(infoName: 'Description', infoValue: desc),
+                    TopicDataRowWidget(infoName: description, infoValue: desc),
                     const ColumnBox(12),
                   ],
-                  TopicDataRowWidget(infoName: 'Score', infoValue: '$score'),
+                  TopicDataRowWidget(infoName: scoreStr, infoValue: '$score'),
                   const ColumnBox(12),
                   if (release != null) ...[
-                    TopicDataRowWidget(infoName: 'Release', infoValue: release),
+                    TopicDataRowWidget(infoName: release, infoValue: release),
                     const ColumnBox(12),
                   ],
-                  TopicDataRowWidget(infoName: 'Created', infoValue: createdDate),
+                  TopicDataRowWidget(infoName: created, infoValue: createdDate),
                   const ColumnBox(12),
-                  TopicDataRowWidget(infoName: 'Updated', infoValue: updatedDate),
+                  TopicDataRowWidget(infoName: updated, infoValue: updatedDate),
                 ],
               ),
             ),
